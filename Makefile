@@ -24,6 +24,7 @@ setup_zsh:
 	$(call setup, zsh/.zshenv, ~/.zshenv)
 	$(call setup, zsh/.zshrc, ~/.zshrc)
 	$(call setup, zsh/.zlogin, ~/.zlogin)
+	$(call setup, zsh/.zprofile, ~/.zprofile)
 
 .PHONY: setup_vim
 setup_vim:
