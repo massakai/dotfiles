@@ -21,18 +21,18 @@ setup_git:
 .PHONY: setup_zsh
 setup_zsh:
 	@echo 'setup zsh config'
-	$(call setup, zsh/.zshenv, ~/.zshenv)
-	$(call setup, zsh/.zshrc, ~/.zshrc)
-	$(call setup, zsh/.zlogin, ~/.zlogin)
-	$(call setup, zsh/.zprofile, ~/.zprofile)
+	$(call setup, `pwd`/zsh/.zshenv, ~/.zshenv)
+	$(call setup, `pwd`/zsh/.zshrc, ~/.zshrc)
+	$(call setup, `pwd`/zsh/.zlogin, ~/.zlogin)
+	$(call setup, `pwd`/zsh/.zprofile, ~/.zprofile)
 
 .PHONY: setup_vim
 setup_vim:
 	@echo 'setup vim config'
-	$(call setup, vim/.vimrc, ~/.vimrc)
+	$(call setup, `pwd`/vim/.vimrc, ~/.vimrc)
 
 .PHONY: setup_screen
 setup_screen:
 	@echo 'setup screen config'
-	$(call setup, screen/.screenrc, ~/.screenrc)
+	$(call setup, `pwd`/screen/.screenrc, ~/.screenrc)
 
