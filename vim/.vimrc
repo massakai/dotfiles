@@ -8,3 +8,6 @@
 " syntax
 syntax enable
 
+set autoindent
+set expandtab
+set tabstop=4
