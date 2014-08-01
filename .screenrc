@@ -1,0 +1,47 @@
+# スタートアップメッセージを消す
+startup_message off
+# 現在の背景色で消去する
+defbce "on"
+# 太字には明るい色を使う(^[はvimでC-v ESCで入力する)
+#attrcolor b "^["
+# 256色表示設定
+term xterm-256color
+# 別画面サポート。Vimやless使うときに便利
+altscreen on
+# ビジュアルベル（画面全体が点滅する）を切る
+vbell off
+# ベルの時はメッセージを出す
+#bell_msg "Bell in window"
+# 端末が落ちたら自動的にデタッチする
+autodetach on
+# 新しいウィンドウを生成するときのコマンド
+shell /bin/zsh
+term xterm-256color
+# 標準でログをとる
+deflog on
+# ログファイルのファイル名
+logfile "$HOME/.screen/screen-%Y%m%d-%n.log"
+# スクロールバッファサイズ
+defscrollback 10000
+# prefixキー
+escape 
+# authomatically set title
+setenv SCREENTITLE auto
+
+# hardstatus and caption
+hardstatus on
+hardstatus alwayslastline "%H%{-} %L=%-w%45L>%n %t%{-}%+w %-17<%=%m/%d %02c:%s"
+caption always '%?%F%:%?%2n%f%07=%t%='
+sorendition "+r .b"
+
+# deactivate lockscreen
+bind x
+bind 
+
+# UTF8文字幅
+# cjkwidth on
+
+# encoding
+defutf8 on
+defencoding utf8
+encoding utf-8 utf-8
