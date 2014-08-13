@@ -1,0 +1,2 @@
+# remove old screen log files
+0 0 * * * find ${HOME}/.screen -name "screen*.log" -mtime +30 -exec rm {} \;
