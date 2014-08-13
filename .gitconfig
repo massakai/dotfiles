@@ -5,6 +5,7 @@
         ui = true
 [core]
         editor = vim
+        pager = less -r
 [filter "media"]
         clean = git-media-clean %f
         smudge = git-media-smudge %f
