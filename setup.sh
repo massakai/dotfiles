@@ -14,18 +14,18 @@ mkdir -p ~/.screen
 # create symbolic links
 echo $0
 echo ${REPOSITORY_ROOT_DIR}
-for PATH in $(find ${REPOSITORY_ROOT_DIR} -name ".*" -type f | grep -v '\.git$')
+for dotfile in $(find ${REPOSITORY_ROOT_DIR} -name ".*" -type f | grep -v '\.git$')
 do
   case "${OSTYPE}" in
   darwin*)
-    FILENAME=$(/usr/bin/basename ${PATH})
+    FILENAME=$(/usr/bin/basename ${dotfile})
     ;;
   linux*)
-    FILENAME=$(/bin/basename ${PATH})
+    FILENAME=$(/bin/basename ${dotfile})
     ;;
   esac
   /bin/rm -f ~/${FILENAME}
-  /bin/ln -s ${PATH} ~/${FILENAME}
+  /bin/ln -s ${dotfile} ~/${FILENAME}
 done
 
 mkdir -p ~/.ssh
