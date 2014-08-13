@@ -9,7 +9,7 @@ set autoindent
 set smartindent
 set backspace=indent,eol,start
 set expandtab
-"set hlsearch
+set hlsearch
 set paste
 set shiftwidth=4
 set tabstop=4
