@@ -103,6 +103,7 @@ linux*)
   alias la='ls --color -la'
   ;;
 esac
+alias grep='grep --color'
 
 # 垂直分割可能なscreenを使用する
 if [ -e /usr/local/bin/screen ]
