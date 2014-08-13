@@ -1,0 +1,11 @@
+[ui]
+username=Masashi SAKAI <masashi.sakai1986@gmail.com>
+
+[extensions]
+graphlog=
+color=
+pager=
+
+[pager]
+pager=LESS='FSRX' less
+
