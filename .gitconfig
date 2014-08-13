@@ -1,0 +1,10 @@
+[user]
+        name = Masashi SAKAI
+        email = masashi.sakai1986@gmail.com
+[color]
+        ui = true
+[core]
+        editor = vim
+[filter "media"]
+        clean = git-media-clean %f
+        smudge = git-media-smudge %f
