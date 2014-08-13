@@ -11,6 +11,7 @@ set backspace=indent,eol,start
 set expandtab
 set smarttab
 set hlsearch
+set incsearch
 set paste
 " タブ、空白、改行の表示
 set list
