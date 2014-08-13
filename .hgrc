@@ -1,5 +1,6 @@
 [ui]
 username=Masashi SAKAI <masashi.sakai1986@gmail.com>
+editor = vim
 
 [extensions]
 graphlog=
