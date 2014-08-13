@@ -19,6 +19,8 @@ set list
 :highlight zenkakuda ctermbg=7
 " カレント行のハイライト
 set cursorline
+" カレント列のハイライト
+set cursorcolumn
 " ルーラーを表示
 set ruler
 syntax on
