@@ -9,8 +9,6 @@ sudo chsh -s /bin/zsh $USER
 # screen setup
 mkdir -p ~/.screen
 
-# vimgdb setup
-
 # create symbolic links
 echo $0
 echo ${REPOSITORY_ROOT_DIR}
@@ -24,6 +22,7 @@ done
 mkdir -p ~/.ssh
 rm -f ~/.ssh/config
 ln -s ${REPOSITORY_ROOT_DIR}/.ssh/config ~/.ssh/config
+ln -s ${REPOSITORY_ROOT_DIR}/.vim        ~/.vim
 
 # cron
 crontab ${REPOSITORY_ROOT_DIR}/crontab
