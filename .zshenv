@@ -2,6 +2,7 @@
 export EDITOR=vim
 export LANG=ja_JP.UTF-8     #文字コードの設定
 export LANGUAGE=ja_JP:ja
+export LC_ALL=ja_JP.UTF-8
 export LC_COLLATE=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
 export LC_IDENTIFICATION=jp_JP.UTF-8
