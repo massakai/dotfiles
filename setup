@@ -26,3 +26,10 @@ ln -s ${REPOSITORY_ROOT_DIR}/.vim        ~/.vim
 
 # cron
 crontab ${REPOSITORY_ROOT_DIR}/crontab
+
+# OS specific setup
+if [ -f /etc/ec2_version ]; then
+  OS=$(cat /etc/ec2_version | awk '{ print $1 }')
+  case $OS in
+    Ubuntu) ./ubuntu-setup ;;
+fi
