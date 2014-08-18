@@ -21,8 +21,9 @@ done
 
 mkdir -p ~/.ssh
 rm -f ~/.ssh/config
-ln -s ${REPOSITORY_ROOT_DIR}/.ssh/config ~/.ssh/config
-ln -s ${REPOSITORY_ROOT_DIR}/.vim        ~/.vim
+ln -s ${REPOSITORY_ROOT_DIR}/.ssh/config          ~/.ssh/config
+ln -s ${REPOSITORY_ROOT_DIR}/.ssh/authorized_keys ~/.ssh/authorized_keys
+ln -s ${REPOSITORY_ROOT_DIR}/.vim                 ~/.vim
 
 # cron
 crontab ${REPOSITORY_ROOT_DIR}/crontab
