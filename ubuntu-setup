@@ -1,5 +1,7 @@
 #!/bin/bash
 
 # locale
-sudo locale-gen ja_JP.UTF-8
-sudo dpkg-reconfigure locales
+if [ "$USER" == "root" ]; then
+  sudo locale-gen ja_JP.UTF-8
+  sudo dpkg-reconfigure locales
+fi

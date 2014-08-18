@@ -4,7 +4,7 @@ REPOSITORY_ROOT_DIR=$(cd $(dirname $0) && pwd)
 
 # zsh
 echo "change shell (zsh)"
-sudo chsh -s /bin/zsh $USER
+chsh -s /bin/zsh $USER
 
 # screen setup
 mkdir -p ~/.screen
@@ -32,4 +32,5 @@ if [ -f /etc/ec2_version ]; then
   OS=$(cat /etc/ec2_version | awk '{ print $1 }')
   case $OS in
     Ubuntu) ./ubuntu-setup ;;
+  esac
 fi
