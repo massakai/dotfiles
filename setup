@@ -20,7 +20,7 @@ do
 done
 
 mkdir -p ~/.ssh
-rm -f ~/.ssh/config
+rm -rf ~/.ssh/config ~/.ssh/authorized_keys ~/.vim
 ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/config
 ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/authorized_keys
 ln -s {${REPOSITORY_ROOT_DIR},~}/.vim
