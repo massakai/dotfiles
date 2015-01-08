@@ -4,7 +4,7 @@ REPOSITORY_ROOT_DIR=$(cd $(dirname $0) && pwd)
 
 # zsh
 echo "change shell (zsh)"
-sudo chsh -s /bin/zsh $USER
+chsh -s /bin/zsh $USER
 
 # screen setup
 mkdir -p ~/.screen
@@ -21,8 +21,9 @@ done
 
 mkdir -p ~/.ssh
 rm -f ~/.ssh/config
-ln -s ${REPOSITORY_ROOT_DIR}/.ssh/config ~/.ssh/config
-ln -s ${REPOSITORY_ROOT_DIR}/.vim        ~/.vim
+ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/config
+ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/authorized_keys
+ln -s {${REPOSITORY_ROOT_DIR},~}/.vim
 
 # cron
 crontab ${REPOSITORY_ROOT_DIR}/crontab
@@ -32,4 +33,5 @@ if [ -f /etc/ec2_version ]; then
   OS=$(cat /etc/ec2_version | awk '{ print $1 }')
   case $OS in
     Ubuntu) ./ubuntu-setup ;;
+  esac
 fi
