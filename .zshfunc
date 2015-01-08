@@ -1,4 +1,3 @@
-# prompt
 function git-current-branch {
   local name st color
 
@@ -23,6 +22,12 @@ function git-current-branch {
   # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
   # これをしないと右プロンプトの位置がずれる
   echo "%{$color%}$name%{$reset_color%} "
+}
+
+# prompt
+function precmd() {
+  PROMPT="[%n@%m]%% ";
+  RPROMPT="[`git-current-branch`%~]";
 }
 
 function randomshuffle

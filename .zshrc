@@ -29,12 +29,6 @@ compctl -S ':' -k _cache_hosts + -f scp
 
 source ~/.zshfunc
 
-# prompt
-function precmd() {
-  PROMPT="[%n@%m]%% ";
-  RPROMPT="[`git-current-branch`%~]";
-}
-
 # alias
 case "${OSTYPE}" in
 darwin*) # for Mac OS X
