@@ -1,0 +1,78 @@
+# prompt
+function git-current-branch {
+  local name st color
+
+#  if [[ "$PWD" =~ /\.git(/.*)?$ ]]; then
+#    return
+#  fi
+  name=$(git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3-)
+  if [[ -z $name ]]; then
+    return
+  fi
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    color=${fg[green]}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+    color=${fg[yellow]}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+    color=${fg_bold[red]}
+  else
+    color=${fg[red]}
+  fi
+
+  # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
+  # これをしないと右プロンプトの位置がずれる
+  echo "%{$color%}$name%{$reset_color%} "
+}
+
+function randomshuffle
+{
+  python -c 'import random; import sys; members = sys.stdin.read().split(); random.shuffle(members); print "\n".join(members)'
+}
+
+function urlencode
+{
+  python -c 'import urllib; import sys; print urllib.quote(sys.stdin.read().strip())'
+}
+
+function urldecode
+{
+  python -c 'import urllib; import sys; print urllib.unquote(sys.stdin.read().strip())'
+}
+
+function print_json
+{
+  python -c 'import sys, json; print json.dumps(json.loads(sys.stdin.read()))'
+}
+
+function pprint_json
+{
+  python -c 'import sys, json; print json.dumps(json.loads(sys.stdin.read()), indent=4)'
+}
+
+function retry
+{
+  if [ $# -le 2 ]
+  then
+    echo 'usage: $ retry <times> <sleep> <command>'
+  fi
+
+  exit_code=0
+  times=$1
+  sleep=$2
+  shift 2
+
+  for i in $(seq $times)
+  do
+    eval "$@"
+    exit_code=$?
+    if [ $exit_code -eq 0 ]
+    then
+      break
+    fi
+    echo "command failed ($i/$times)" 1>&2
+    sleep $sleep
+  done
+  echo "retry failed" 1>&2
+  return $exit_code
+}
