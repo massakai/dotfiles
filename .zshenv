@@ -36,6 +36,9 @@ path=(
     $HOME/.rvm/bin(N-/)
 )
 
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 # Maven
 export MAVEN2_HOME=/Developer/apache-maven-3.0.4
 path=($path $MAVEN2_HOME/bin(N-/))
