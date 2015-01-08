@@ -47,3 +47,6 @@ path=($path $MAVEN2_HOME/bin(N-/))
 export HADOOP_HOME=~/Applications/hadoop-2.6.0
 path=($path $HADOOP_HOME/bin(N-/))
 
+# PIG
+export PIG_HOME=~/Applications/pig-0.14.0
+path=($path $PIG_HOME/bin(N-/))
