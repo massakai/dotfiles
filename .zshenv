@@ -30,8 +30,6 @@ path=(
     /usr/*/bin(N-/)
     /usr/local/*/bin(N-/)
     /var/*/bin(N-/)
-    /opt/local/bin(N-/)
-    /opt/local/sbin(N-/)
     $HOME/.rvm/bin(N-/)
 )
 
@@ -42,18 +40,4 @@ path=($path $MAVEN2_HOME/bin(N-/))
 # Hadoop
 export HADOOP_HOME=/Developer/hadoop-1.0.1
 path=($path $HADOOP_HOME/bin(N-/))
-
-# mac ports
-path=(
-    $path
-    /opt/local/bin(N-/)
-    /opt/local/sbin(N-/)
-)
-manpath=($manpath /opt/local/man(N-/))
-library_path=($library_path /opt/local/lib(N-/))
-ld_library_path=($ld_library_path /opt/local/lib(N-/))
-c_include_path=($c_include_path /opt/local/include(N-/))
-cplus_include_path=($cplus_include_path /opt/local/include(N-/))
-dyld_fallback_library_path=($dyld_fallback_library_path /opt/local/lib(N-/))
-boost_root=($boost_root /opt/local/include/boost(N-/))
 
