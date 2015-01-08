@@ -12,9 +12,12 @@ export LC_NAME=ja_JP.UTF-8
 export LC_TIME=ja_JP.UTF-8
 export SHELL=/bin/zsh
 
+
 # options
-export _JAVE_OPTIONS="-Dfile.encoding=UTF-8"
+export GREP_OPTIONS="--color=always"
+export LESS="-R"
 export VIRTUALENV_USE_DISTRIBUTE=true
+export _JAVE_OPTIONS="-Dfile.encoding=UTF-8"
 
 # path
 typeset -T LIBRARY_PATH               library_path
