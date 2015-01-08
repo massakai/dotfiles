@@ -44,6 +44,6 @@ export MAVEN2_HOME=/Developer/apache-maven-3.0.4
 path=($path $MAVEN2_HOME/bin(N-/))
 
 # Hadoop
-export HADOOP_HOME=/Developer/hadoop-1.0.1
+export HADOOP_HOME=~/Applications/hadoop-2.6.0
 path=($path $HADOOP_HOME/bin(N-/))
 
