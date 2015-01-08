@@ -9,3 +9,11 @@
 [filter "media"]
         clean = git-media-clean %f
         smudge = git-media-smudge %f
+[alias]
+        br = branch
+        co = checkout
+        cp = cherry-pick
+        df = diff
+        mg = merge
+        rb = rebase
+        st = status
