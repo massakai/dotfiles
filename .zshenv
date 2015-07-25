@@ -37,7 +37,7 @@ path=(
 )
 
 # Java
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # Maven
 export MAVEN2_HOME=/Developer/apache-maven-3.0.4
