@@ -23,11 +23,22 @@ escape 
 # authomatically set title
 setenv SCREENTITLE auto
 
-# hardstatus and caption
+# Caption for each window
+setenv cap ""
+setenv cap "$cap%?%F"  # if the window has the focus
+setenv cap "$cap%:"    # else
+setenv cap "$cap%?"    # endif
+setenv cap "$cap%2n"   # window number
+setenv cap "$cap%f"    # flags of the window 
+setenv cap "$cap%07="  # 
+setenv cap "$cap%t"    # window title
+setenv cap "$cap%="
+caption always "$cap" 
+
+# hardstatus
 hardstatus on
 hardstatus alwayslastline "%H%{-} %L=%-w%45L>%n %t%{-}%+w %-17<%=%m/%d %02c:%s"
-caption always '%?%F%:%?%2n%f%07=%t%='
-sorendition "+r .b"
+sorendition "+r .B"
 
 # deactivate lockscreen
 bind x
