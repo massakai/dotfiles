@@ -39,6 +39,10 @@ path=(
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
+# Scala
+export SCALA_HOME=/Developer/scala-2.11.7
+path=($path $SCALA_HOME/bin(N-/))
+
 # Maven
 export MAVEN2_HOME=/Developer/apache-maven-3.0.4
 path=($path $MAVEN2_HOME/bin(N-/))
