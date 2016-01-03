@@ -1,6 +1,7 @@
 #!/bin/sh
 
 REPOSITORY_ROOT_DIR=$(cd $(dirname $0) && pwd)
+DROPBOX_HOME=~/Dropbox
 
 # zsh
 echo "change shell (zsh)"
@@ -19,10 +20,16 @@ do
   ln -s ${dotfile} ~/${FILENAME}
 done
 
-mkdir -p ~/.ssh
-rm -rf ~/.ssh/config ~/.ssh/authorized_keys ~/.vim
+if [ -d $DROPBOX_HOME/Backup/.ssh ]; then
+  ln -s $DROPBOX_HOME/Backup/.ssh ~/.ssh
+else
+  mkdir -p ~/.ssh
+fi
+rm -rf ~/.ssh/config ~/.ssh/authorized_keys
 ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/config
 ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/authorized_keys
+
+rm -rf ~/.vim
 ln -s {${REPOSITORY_ROOT_DIR},~}/.vim
 
 # cron
