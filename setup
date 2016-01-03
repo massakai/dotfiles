@@ -32,6 +32,12 @@ ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/authorized_keys
 rm -rf ~/.vim
 ln -s {${REPOSITORY_ROOT_DIR},~}/.vim
 
+# Generate SSH keys
+echo "==== Generate github SSH key ====" 1>&2
+ssh-keygen -t ed25519 -f ~/.ssh/github -C "github key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
+echo "==== Generate bitbucket SSH key ====" 1>&2
+ssh-keygen -t rsa -b $((1024 * 8)) -f ~/.ssh/bitbucket -C "bitbucket key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
+
 # cron
 crontab ${REPOSITORY_ROOT_DIR}/crontab
 
