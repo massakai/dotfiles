@@ -81,3 +81,9 @@ function retry
   echo "retry failed" 1>&2
   return $exit_code
 }
+
+function my-ssh-keygen() {
+    date=$(date +%Y-%m-%d)
+    key_type=ed25519
+    ssh-keygen -t $key_type -b $((1024 * 8)) -f id_${key_type}_$date -C "$key_type key $date" $@
+}
