@@ -32,7 +32,7 @@ function precmd() {
 
 function randomshuffle
 {
-  python -c 'import random; import sys; members = sys.stdin.read().split(); random.shuffle(members); print "\n".join(members)'
+  python -c 'import random; import sys; members = sys.stdin.readlines(); random.shuffle(members); print "".join(members)'
 }
 
 function urlencode
