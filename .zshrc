@@ -72,7 +72,6 @@ else
 fi
 
 # virtualenvwrapper
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-  export WORKON_HOME=$HOME/.virtualenvs
+if [ -z $VIRTUAL_ENV -a -f /usr/local/bin/virtualenvwrapper.sh ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
