@@ -24,9 +24,18 @@ function git-current-branch {
   echo "%{$color%}$name%{$reset_color%} "
 }
 
+function pyvenv-name {
+  if [[ -z $VIRTUAL_ENV ]]; then
+    return
+  elif [[ -z ${VIRTUAL_ENV##*/} ]]; then
+    return
+  fi
+  echo "(${VIRTUAL_ENV##*/})"
+}
+
 # prompt
 function precmd() {
-  PROMPT="[%n@%m]%% ";
+  PROMPT="`pyvenv-name`[%n@%m]%% ";
   RPROMPT="[`git-current-branch`%~]";
 }
 
@@ -86,4 +95,8 @@ function my-ssh-keygen() {
     date=$(date +%Y-%m-%d)
     key_type=ed25519
     ssh-keygen -t $key_type -f ~/.ssh/id_${key_type}_$date -C "$key_type key $date" $@
+}
+
+function pyvenv-activate() {
+    source $WORKON_HOME/$1/bin/activate
 }

@@ -36,6 +36,10 @@ path=(
     $HOME/.rvm/bin(N-/)
 )
 
+# Python
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+export WORKON_HOME=$HOME/.venvs
+
 # Java
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
