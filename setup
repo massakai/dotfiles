@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/bin/zsh
 
 REPOSITORY_ROOT_DIR=$(cd $(dirname $0) && pwd)
-DROPBOX_HOME=~/Dropbox
 
 # zsh
 echo "change shell (zsh)"
@@ -39,6 +38,8 @@ echo "==== Generate bitbucket SSH key ====" 1>&2
 ssh-keygen -t rsa -b $((1024 * 8)) -f ~/.ssh/bitbucket -C "bitbucket key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
 
 # cron
+rm -rf ~/.crontab
+ln -s {${REPOSITORY_ROOT_DIR},~}/.crontab
 crontab ${REPOSITORY_ROOT_DIR}/crontab
 
 # OS specific setup

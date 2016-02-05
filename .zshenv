@@ -36,6 +36,9 @@ path=(
     $HOME/.rvm/bin(N-/)
 )
 
+# DropBox
+export DROPBOX_HOME=~/Dropbox
+
 # Python
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 export WORKON_HOME=$HOME/.venvs

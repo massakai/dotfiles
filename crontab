@@ -1,2 +1,19 @@
-# remove old screen log files
-0 0 * * * find ${HOME}/.screen -name "screen*.log" -mtime +30 -exec rm {} \;
+PATH=~/.crontab/bin
+LOG_DIR=~/.crontab/logs
+
+#
+# hourly
+#
+
+# log open exchange rate
+10 * * * * oxr_getter.sh
+
+#
+# daily
+#
+
+# brew update & upgrade
+0 3 * * * brew.sh
+
+# remove old log files
+0 0 * * * find ${LOG_DIR} -type f -mtime +30 -exec rm {} \;
