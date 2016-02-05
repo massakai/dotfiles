@@ -3,8 +3,10 @@
 REPOSITORY_ROOT_DIR=$(cd $(dirname $0) && pwd)
 
 # zsh
-echo "change shell (zsh)"
-chsh -s /bin/zsh $USER
+if [ "$SHELL" != "/bin/zsh" ]; then
+  echo "change shell (zsh)"
+  chsh -s /bin/zsh $USER
+fi
 
 # screen setup
 mkdir -p ~/.screen
@@ -19,7 +21,7 @@ do
   ln -s ${dotfile} ~/${FILENAME}
 done
 
-if [ -d $DROPBOX_HOME/Backup/.ssh ]; then
+if [ -d $DROPBOX_HOME/Backup/.ssh -a ! -L ~/.ssh ]; then
   ln -s $DROPBOX_HOME/Backup/.ssh ~/.ssh
 else
   mkdir -p ~/.ssh
@@ -32,10 +34,14 @@ rm -rf ~/.vim
 ln -s {${REPOSITORY_ROOT_DIR},~}/.vim
 
 # Generate SSH keys
-echo "==== Generate github SSH key ====" 1>&2
-ssh-keygen -t ed25519 -f ~/.ssh/github -C "github key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
-echo "==== Generate bitbucket SSH key ====" 1>&2
-ssh-keygen -t rsa -b $((1024 * 8)) -f ~/.ssh/bitbucket -C "bitbucket key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
+if [ ! -f ~/.ssh/github ]; then
+  echo "==== Generate github SSH key ====" 1>&2
+  ssh-keygen -t ed25519 -f ~/.ssh/github -C "github key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
+fi
+if [ ! -f ~/.ssh/bitbucket ]; then
+  echo "==== Generate bitbucket SSH key ====" 1>&2
+  ssh-keygen -t rsa -b $((1024 * 8)) -f ~/.ssh/bitbucket -C "bitbucket key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
+fi
 
 # cron
 rm -rf ~/.crontab
