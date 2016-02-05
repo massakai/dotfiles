@@ -16,4 +16,4 @@ LOG_DIR=~/.crontab/logs
 0 3 * * * brew.sh
 
 # remove old log files
-0 0 * * * find ${LOG_DIR} -type f -mtime +30 -exec rm {} \;
+0 0 * * * find ${LOG_DIR} -name '*.log' -o -name '*.err' -mtime +30 | xargs ${XARGS_EMPTY_OPTION} rm

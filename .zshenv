@@ -61,3 +61,13 @@ path=($path $HADOOP_HOME/bin(N-/))
 # PIG
 export PIG_HOME=~/Applications/pig-0.14.0
 path=($path $PIG_HOME/bin(N-/))
+
+# enviroment specific settings
+case "${OSTYPE}" in
+darwin*) # for Mac OS X
+  export XARGS_EMPTY_OPTION=''
+  ;;
+linux*)
+  export XARGS_EMPTY_OPTION='--no-run-if-empty'
+  ;;
+esac
