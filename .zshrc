@@ -1,4 +1,4 @@
-autoload -U compinit; compinit        #コマンド補完をONに
+autoload -U compinit; compinit  #コマンド補完をONに
 autoload -U colors; colors
 
 # setopt
@@ -27,56 +27,26 @@ _cache_hosts=(`cut -d' ' -f1 ~/.ssh/known_hosts | cut -d, -f1`)
 compctl -k _cache_hosts ssh sssh
 compctl -S ':' -k _cache_hosts + -f scp
 
+source .zsh/.zshrc.ssh
+source .zsh/functions
+source .zsh/.zshrc.alias
+
 # zsh-syntax-highlighting
 if [ -f .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-source ~/.zshfunc
-
-# alias
-case "${OSTYPE}" in
-darwin*) # for Mac OS X
-  alias ls='ls -G'
-  alias ll='ls -Gl'
-  alias la='ls -Gla'
-  ;;
-linux*)
-  alias ls='ls --color'
-  alias ll='ls --color -l'
-  alias la='ls --color -la'
-  ;;
-esac
-
-# 垂直分割可能なscreenを使用する
-if [ -e /usr/local/bin/screen ]
-then
-  alias screen=/usr/local/bin/screen -U
-fi
-
-# start ssh agent
-echo -n "ssh-agent: "
-if [ -e ~/.ssh-agent-info ]
-then
-  source ~/.ssh-agent-info
-fi
-
-ssh-add -l >& /dev/null
-if [ $? = 2 ]
-then
-  echo -n "ssh-agent: restart...."
-  ssh-agent >~/.ssh-agent-info
-  source ~/.ssh-agent-info
-fi
-
-if ssh-add -l >& /dev/null
-then
-  echo "ssh-agent: Identity is already stored."
-else
-  ssh-add
-fi
-
 # virtualenvwrapper
 if [ -z $VIRTUAL_ENV -a -f /usr/local/bin/virtualenvwrapper.sh ]; then
-  source /usr/local/bin/virtualenvwrapper.sh
+    source /usr/local/bin/virtualenvwrapper.sh
 fi
+
+# OS固有の設定
+case "${OSTYPE}" in
+darwin*) # for Mac OS X
+    source .zsh/osx/.zshrc
+    ;;
+linux*)
+    source .zsh/linux/.zshrc
+    ;;
+esac

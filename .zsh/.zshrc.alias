@@ -1,0 +1,5 @@
+# 垂直分割可能なscreenを使用する
+if [ -e /usr/local/bin/screen ]
+then
+  alias screen=/usr/local/bin/screen -U
+fi
