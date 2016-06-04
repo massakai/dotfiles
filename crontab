@@ -1,4 +1,4 @@
-PATH=~/.crontab/bin
+PATH=~/.crontab/bin;/usr/local/bin;/usr/bin;/bin
 LOG_DIR=~/.crontab/logs
 
 #
