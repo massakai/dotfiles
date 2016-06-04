@@ -33,7 +33,7 @@ ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/authorized_keys
 rm -rf ~/.vim
 ln -s {${REPOSITORY_ROOT_DIR},~}/.vim
 
-ln-sF {${REPOSITORY_ROOT_DIR},~}/.zsh
+ln -sF {${REPOSITORY_ROOT_DIR},~}/.zsh
 
 # Generate SSH keys
 if [ ! -f ~/.ssh/github ]; then
