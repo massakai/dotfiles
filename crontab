@@ -1,3 +1,4 @@
+MAILTO=masashi.sakai1986@gmail.com
 PATH=~/.crontab/bin;/usr/local/bin;/usr/bin;/bin
 LOG_DIR=~/.crontab/logs
 
