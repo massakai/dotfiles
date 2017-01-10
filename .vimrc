@@ -15,6 +15,7 @@ set cursorline
 " ルーラーを表示
 set ruler
 syntax on
+filetype plugin indent on
 
 imap OA <Up>
 imap OB <Down>
