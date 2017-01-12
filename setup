@@ -48,7 +48,7 @@ fi
 # cron
 rm -rf ~/.crontab
 ln -s {${REPOSITORY_ROOT_DIR},~}/.crontab
-crontab ${REPOSITORY_ROOT_DIR}/crontab
+crontab <(${REPOSITORY_ROOT_DIR}/crontab.sh)
 
 # OS specific setup
 if [ -f /etc/ec2_version ]; then
