@@ -4,7 +4,7 @@ cat <<EOS
 SHELL=${SHELL}
 HOME=${HOME}
 MAILTO=masashi.sakai1986@gmail.com
-PATH=${HOME}/.crontab/bin;/usr/local/bin;/usr/bin;/bin
+PATH=${HOME}/.crontab/bin:/usr/local/bin:/usr/bin:/bin
 LOG_DIR=${HOME}/.crontab/logs
 
 EOS
