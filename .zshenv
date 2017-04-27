@@ -37,7 +37,7 @@ path=(
 )
 
 # DropBox
-export DROPBOX_HOME=~/Dropbox
+export DROPBOX_HOME=~/Amazon\ Drive/Dropbox
 
 # Python
 export VIRTUAL_ENV_DISABLE_PROMPT=true
