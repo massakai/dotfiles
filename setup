@@ -14,7 +14,7 @@ mkdir -p ~/.screen
 # create symbolic links
 echo $0
 echo ${REPOSITORY_ROOT_DIR}
-for dotfile in $(find ${REPOSITORY_ROOT_DIR} -name ".*" -type f | grep -v '\.git$')
+for dotfile in $(find ${REPOSITORY_ROOT_DIR} -name ".*" -depth 1 -type f | grep -v -e '\.gitignore$' -e '\.gitmodules')
 do
   FILENAME=$(basename ${dotfile})
   rm -f ~/${FILENAME}
