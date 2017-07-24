@@ -27,9 +27,9 @@ _cache_hosts=(`cut -d' ' -f1 ~/.ssh/known_hosts | cut -d, -f1`)
 compctl -k _cache_hosts ssh sssh
 compctl -S ':' -k _cache_hosts + -f scp
 
-source .zsh/.zshrc.ssh
-source .zsh/functions
-source .zsh/.zshrc.alias
+source ~/.zsh/.zshrc.ssh
+source ~/.zsh/functions
+source ~/.zsh/.zshrc.alias
 
 # zsh-syntax-highlighting
 if [ -f .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
