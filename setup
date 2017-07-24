@@ -2,9 +2,14 @@
 
 REPOSITORY_ROOT_DIR=$(cd $(dirname $0) && pwd)
 
+function info
+{
+    echo "\e[32;1m$@\e[m" 1>&2
+}
+
 # zsh
 if [ "$SHELL" != "/bin/zsh" ]; then
-  echo "change shell (zsh)"
+  info "change shell (zsh)"
   chsh -s /bin/zsh $USER
 fi
 
@@ -37,11 +42,11 @@ ln -sF {${REPOSITORY_ROOT_DIR},~}/.zsh
 
 # Generate SSH keys
 if [ ! -f ~/.ssh/github ]; then
-  echo "==== Generate github SSH key ====" 1>&2
+  info "Generate github SSH key"
   ssh-keygen -t ed25519 -f ~/.ssh/github -C "github key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
 fi
 if [ ! -f ~/.ssh/bitbucket ]; then
-  echo "==== Generate bitbucket SSH key ====" 1>&2
+  info "Generate bitbucket SSH key"
   ssh-keygen -t rsa -b $((1024 * 8)) -f ~/.ssh/bitbucket -C "bitbucket key for $(whoami)@$(hostname) on $(date +%Y-%m-%d)"
 fi
 
