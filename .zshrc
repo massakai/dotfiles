@@ -23,9 +23,11 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
 # comp
-_cache_hosts=(`cut -d' ' -f1 ~/.ssh/known_hosts | cut -d, -f1`)
-compctl -k _cache_hosts ssh sssh
-compctl -S ':' -k _cache_hosts + -f scp
+if [ -e ~/.ssh/known_hosts ]; then
+    _cache_hosts=(`cut -d' ' -f1 ~/.ssh/known_hosts | cut -d, -f1`)
+    compctl -k _cache_hosts ssh sssh
+    compctl -S ':' -k _cache_hosts + -f scp
+fi
 
 source ~/.zsh/.zshrc.ssh
 source ~/.zsh/functions
