@@ -44,9 +44,9 @@ fi
 # OS固有の設定
 case "${OSTYPE}" in
 darwin*) # for Mac OS X
-    source .zsh/darwin/.zshrc
+    source ~/.zsh/darwin/.zshrc
     ;;
 linux*)
-    source .zsh/linux/.zshrc
+    source ~/.zsh/linux/.zshrc
     ;;
 esac
