@@ -29,13 +29,13 @@ if [ -e ~/.ssh/known_hosts ]; then
     compctl -S ':' -k _cache_hosts + -f scp
 fi
 
-source ~/.zsh/.zshrc.ssh
-source ~/.zsh/functions
-source ~/.zsh/.zshrc.alias
+source ${ZDOTDIR}/.zshrc.ssh
+source ${ZDOTDIR}/functions
+source ${ZDOTDIR}/zshrc.alias
 
 # zsh-syntax-highlighting
-if [ -f .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source .zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -f ${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source ${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # virtualenvwrapper
@@ -46,9 +46,9 @@ fi
 # OS固有の設定
 case "${OSTYPE}" in
 darwin*) # for Mac OS X
-    source ~/.zsh/darwin/.zshrc
+    source darwin/.zshrc
     ;;
 linux*)
-    source ~/.zsh/linux/.zshrc
+    source linux/.zshrc
     ;;
 esac

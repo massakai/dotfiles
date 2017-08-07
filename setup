@@ -12,6 +12,7 @@ if [ "$SHELL" != "/bin/zsh" ]; then
   info "change shell (zsh)"
   chsh -s /bin/zsh $USER
 fi
+echo "ZDOTDIR=${REPOSITORY_ROOT_DIR}/zsh" > ~/.zshenv
 
 # screen setup
 mkdir -p ~/.screen
@@ -37,8 +38,6 @@ ln -s {${REPOSITORY_ROOT_DIR},~}/.ssh/authorized_keys
 
 rm -rf ~/.vim
 ln -s {${REPOSITORY_ROOT_DIR},~}/.vim
-
-ln -sF {${REPOSITORY_ROOT_DIR},~}/.zsh
 
 # Generate SSH keys
 if [ ! -f ~/.ssh/github ]; then
