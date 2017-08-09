@@ -37,7 +37,7 @@ ZDOTDIR=${ZDOTDIR:-${HOME}}
 
 source ${ZDOTDIR}/.zshrc.ssh
 source ${ZDOTDIR}/functions
-source ${ZDOTDIR}/zshrc.alias
+source ${ZDOTDIR}/.zshrc.alias
 
 # zsh-syntax-highlighting
 if [ -f ${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
@@ -52,9 +52,9 @@ fi
 # OS固有の設定
 case "${OSTYPE}" in
 darwin*) # for Mac OS X
-    source darwin/.zshrc
+    source ${ZDOTDIR}/darwin/.zshrc
     ;;
 linux*)
-    source linux/.zshrc
+    source ${ZDOTDIR}/linux/.zshrc
     ;;
 esac
