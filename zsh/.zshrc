@@ -29,6 +29,12 @@ if [ -e ~/.ssh/known_hosts ]; then
     compctl -S ':' -k _cache_hosts + -f scp
 fi
 
+# load ZDOTDIR
+if [ -n "${ZDOTDIR}" -a -e ~/.zshenv ]; then
+    source ~/.zshenv
+fi
+ZDOTDIR=${ZDOTDIR:-${HOME}}
+
 source ${ZDOTDIR}/.zshrc.ssh
 source ${ZDOTDIR}/functions
 source ${ZDOTDIR}/zshrc.alias
