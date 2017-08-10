@@ -12,7 +12,10 @@ if [ "$SHELL" != "/bin/zsh" ]; then
   info "change shell (zsh)"
   chsh -s /bin/zsh $USER
 fi
-echo "ZDOTDIR=${REPOSITORY_ROOT_DIR}/zsh" > ~/.zshenv
+cat <<EOS > ~/.zshenv
+ZDOTDIR=${REPOSITORY_ROOT_DIR}/zsh
+. ${ZDOTDIR}/.zshenv
+EOS
 
 # screen setup
 mkdir -p ~/.screen

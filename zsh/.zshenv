@@ -28,12 +28,18 @@ typeset -T DYLD_FALLBACK_LIBRARY_PATH dyld_fallback_library_path
 typeset -T BOOST_ROOT                 boost_root
 typeset -U path manpath library_path ld_library_path c_include_path cplus_include_path dyld_fallback_library_path boost_root
 
+if [ -n ${ZDOTDIR} ]; then
+    DOTDIR=${ZDOTDIR%/*}
+    DOTBIN=${DOTDIR}/bin
+fi
+
 path=(
     $path
     /usr/*/bin(N-/)
     /usr/local/*/bin(N-/)
     /var/*/bin(N-/)
     $HOME/.rvm/bin(N-/)
+    ${DOTBIN}
 )
 
 # DropBox
