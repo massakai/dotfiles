@@ -68,6 +68,9 @@ path=($path $HADOOP_HOME/bin(N-/))
 export PIG_HOME=~/Applications/pig-0.14.0
 path=($path $PIG_HOME/bin(N-/))
 
+# Apache Ignite
+export IGNITE_HOME=~/Applications/apache-ignite-fabric-2.1.0-bin
+
 # enviroment specific settings
 case "${OSTYPE}" in
 darwin*) # for Mac OS X
