@@ -17,13 +17,9 @@
         mg = merge
         rb = rebase
         st = status
-[merge]
-        tool = p4Merge
 [mergetool "p4Merge"]
         cmd = p4Merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
         trustExitCode = false
-[diff]
-        external = p4MergeDiff
 [difftool "sourcetree"]
         cmd = opendiff \"$LOCAL\" \"$REMOTE\"
         path = 
