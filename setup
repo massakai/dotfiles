@@ -14,7 +14,7 @@ if [ "$SHELL" != "/bin/zsh" ]; then
 fi
 cat <<EOS > ~/.zshenv
 ZDOTDIR=${REPOSITORY_ROOT_DIR}/zsh
-. ${ZDOTDIR}/.zshenv
+. \${ZDOTDIR}/.zshenv
 EOS
 
 # screen setup
