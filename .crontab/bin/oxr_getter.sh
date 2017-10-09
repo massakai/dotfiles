@@ -2,7 +2,7 @@
 
 # settings
 APP_ENV=~/.venvs/pyoxr
-APP_HOME=~/git/pyoxr
+APP_HOME=~/github/pyoxr
 APP_ID=`cat ~/Dropbox/Backup/oxr.app_id`
 LOG=~/Dropbox/Backup/oxr.out
 
