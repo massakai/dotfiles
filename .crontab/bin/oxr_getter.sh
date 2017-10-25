@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash -eu
 
 # settings
 APP_ENV=~/.venvs/pyoxr
