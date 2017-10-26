@@ -44,11 +44,6 @@ if [ -f ${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ${ZDOTDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-# virtualenvwrapper
-if [ -z $VIRTUAL_ENV -a -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
-
 # OS固有の設定
 case "${OSTYPE}" in
 darwin*) # for Mac OS X
