@@ -15,7 +15,7 @@ cat <<'EOS'
 #
 
 # log open exchange rate
-10 * * * * oxr_getter.sh
+10 * * * * oxr_getter.sh < /dev/null > ${LOG_DIR}/oxr_getter.out 2> ${LOG_DIR}/oxr_getter.err
 
 #
 # daily
