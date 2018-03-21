@@ -17,6 +17,7 @@ source setup/screen.sh
 source setup/ssh.sh
 source setup/vim.sh
 source setup/crontab.sh
+source setup/pip.sh
 source setup/pypi.sh
 
 # OS specific setup

@@ -25,6 +25,9 @@ path=(
 # DropBox
 export DROPBOX_HOME=~/Dropbox
 
+# Python
+export PIP_CONFIG_FILE=~/.config/pip/pip.conf
+
 # options
 export GREP_OPTIONS="--color=always"
 export LESS="-R"
