@@ -27,6 +27,11 @@ export DROPBOX_HOME=~/Dropbox
 
 # Python
 export PIP_CONFIG_FILE=~/.config/pip/pip.conf
+export PYTHON36_HOME="/Library/Frameworks/Python.framework/Versions/3.6"
+path=(
+    ${PYTHON36_HOME}/bin
+    $path
+)
 
 # options
 export GREP_OPTIONS="--color=always"
