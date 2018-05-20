@@ -33,6 +33,13 @@ path=(
     $path
 )
 
+# Google Cloud Platform
+export GCP_HOME=/Applications/google-cloud-sdk
+path=(
+    ${GCP_HOME}/bin
+    $path
+)
+
 # options
 export GREP_OPTIONS="--color=always"
 export LESS="-R"
