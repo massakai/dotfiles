@@ -3,3 +3,5 @@ if [ -e /usr/local/bin/screen ]
 then
   alias screen=/usr/local/bin/screen -U
 fi
+
+alias date_iso8601='date +%Y-%m-%dT%H:%M:%S%z'
