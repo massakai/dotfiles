@@ -26,6 +26,9 @@ cat <<'EOS'
 # brew update & upgrade
 0 3 * * * brew.sh
 
+# Docker
+0 4 * * * docker image prune -f
+
 # remove old log files
 0 0 * * * find ${LOG_DIR} -name '*.out' -o -name '*.err' -mtime +30 | xargs ${XARGS_EMPTY_OPTION} rm
 EOS
