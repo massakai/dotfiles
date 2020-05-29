@@ -47,6 +47,9 @@ export LESS="-R"
 case "${OSTYPE}" in
 darwin*) # for Mac OS X
   export XARGS_EMPTY_OPTION=''
+  export JAVA_HOME_CMD=/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java_home
+  # Java 11をデフォルトにする
+  export JAVA_HOME=$(${JAVA_HOME_CMD} -v 11)
   ;;
 linux*)
   export XARGS_EMPTY_OPTION='--no-run-if-empty'
