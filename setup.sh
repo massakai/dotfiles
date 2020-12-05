@@ -12,13 +12,10 @@ function info
 git submodule init
 git submodule update
 
-source setup/zsh.sh
-source setup/screen.sh
-source setup/ssh.sh
-source setup/vim.sh
-source setup/crontab.sh
-source setup/pip.sh
-source setup/pypi.sh
+for script in $(find setup -name "*.sh" ! -name "ubuntu.sh")
+do
+  source "${script}"
+done
 
 # OS specific setup
 if [ -f /etc/ec2_version ]; then
