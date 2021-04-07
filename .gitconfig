@@ -19,7 +19,8 @@
         st = status
         push-f = push --force-with-lease
         snapshot = !"git tag $(git branch --list | awk '/\\*/{ print $2 }')_$(date '+%Y%m%d_%H%M%S')"
-[mergetool "p4Merge"]
+		clean-snapshot = !"git tag -d $(git tag | grep --color=none '_[0-9]\\{8\\}_[0-9]\\{6\\}$')"
+[mergetool "p4Merge"] 
         cmd = p4Merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
         trustExitCode = false
 [difftool "sourcetree"]
