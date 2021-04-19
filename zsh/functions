@@ -26,8 +26,13 @@ function git-current-branch {
 
 # prompt
 function precmd() {
-    PROMPT="[%n@%m]%% ";
-    RPROMPT="[`git-current-branch`%~]";
+    typeset -a git_branch
+
+    git_branch=$(git-current-branch)
+
+    lines=("%~ ${git_branch}" '$ ')
+
+    PROMPT=$(echo -n ${(j:\n:)lines});
 }
 
 function randomshuffle
