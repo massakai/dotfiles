@@ -20,6 +20,12 @@
         push-f = push --force-with-lease
         snapshot = !"git tag $(git branch --list | awk '/\\*/{ print $2 }')_$(date '+%Y%m%d_%H%M%S')"
 		clean-snapshot = !"git tag -d $(git tag | grep --color=none '_[0-9]\\{8\\}_[0-9]\\{6\\}$')"
+		prune-branches = "!f() { \
+				git checkout master; \
+				git branch --merged | grep -v 'master' | xargs git branch -d; \
+				git fetch --prune; \
+				git checkout -; \
+			}; f"
 [mergetool "p4Merge"] 
         cmd = p4Merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
         trustExitCode = false
