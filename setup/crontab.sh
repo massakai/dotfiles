@@ -27,7 +27,7 @@ cat <<'EOS'
 0 3 * * * brew.sh
 
 # Docker
-0 4 * * * docker image prune -f
+0 4 * * * docker_cleaner.sh
 
 # remove old log files
 0 0 * * * find ${LOG_DIR} -name '*.out' -o -name '*.err' -mtime +30 | xargs ${XARGS_EMPTY_OPTION} rm
