@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-ln -sf ${REPOSITORY_ROOT_DIR}/.crontab ~/.crontab
+ln -sfn ${REPOSITORY_ROOT_DIR}/.crontab ~/.crontab
 
 crontab <(cat <<EOS
 SHELL=${SHELL}
