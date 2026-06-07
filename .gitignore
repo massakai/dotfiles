@@ -1,2 +1,22 @@
 *.out
 *.err
+
+# Shell and editor generated state
+zsh/.zcompcache/
+zsh/.zcompdump
+zsh/.zsh_sessions/
+.vim/.netrwhist
+.vim/.vim/
+.vim/.vim
+
+# XDG config is mostly app state, credentials, caches, and machine-local data.
+# Keep it ignored by default and allowlist only portable dotfiles.
+.config/*
+
+!.config/pip/
+.config/pip/*
+!.config/pip/pip.conf
+
+!.config/gh/
+.config/gh/*
+!.config/gh/config.yml
