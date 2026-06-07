@@ -1,0 +1,34 @@
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."coderabbit@openai-curated"]
+enabled = true
+
+[plugins."atlassian-rovo@openai-curated"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[desktop]
+ambient-suggestions-enabled = true
+conversationDetailMode = "STEPS_COMMANDS"
+composerEnterBehavior = "cmdIfMultiline"
+
+[desktop.open-in-target-preferences]
+global = "fileManager"
+
+[features]
+js_repl = false

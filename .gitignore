@@ -20,3 +20,6 @@ zsh/.zsh_sessions/
 !.config/gh/
 .config/gh/*
 !.config/gh/config.yml
+
+# Local-only Codex overrides
+codex/config.local.toml
