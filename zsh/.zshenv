@@ -22,6 +22,7 @@ typeset -U path
 path=(
     $path
     ${DOTBIN}
+    ${HOME}/.local/bin
 )
 
 # DropBox
