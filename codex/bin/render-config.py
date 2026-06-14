@@ -4,6 +4,14 @@ import sys
 from pathlib import Path
 import tomllib
 
+PRESERVED_PATHS = [
+    ("service_tier",),
+    ("tui", "model_availability_nux"),
+    ("marketplaces",),
+    ("mcp_servers", "node_repl"),
+    ("notice", "model_migrations"),
+]
+
 
 def merge(base, override):
     result = dict(base)
@@ -58,6 +66,38 @@ def load_toml(path):
         return tomllib.load(f)
 
 
+def get_path(table, path):
+    current = table
+    for key in path:
+        if not isinstance(current, dict) or key not in current:
+            return None
+        current = current[key]
+    return current
+
+
+def set_path(table, path, value):
+    current = table
+    for key in path[:-1]:
+        next_value = current.get(key)
+        if not isinstance(next_value, dict):
+            next_value = {}
+            current[key] = next_value
+        current = next_value
+    current[path[-1]] = value
+
+
+def preserve_existing_sections(config, output_path):
+    if not output_path.exists():
+        return config
+
+    existing = load_toml(output_path)
+    for path in PRESERVED_PATHS:
+        value = get_path(existing, path)
+        if value is not None:
+            set_path(config, path, value)
+    return config
+
+
 def main():
     if len(sys.argv) != 4:
         print(
@@ -71,6 +111,8 @@ def main():
 
     if local_path.exists():
         config = merge(config, load_toml(local_path))
+
+    config = preserve_existing_sections(config, output_path)
 
     lines = []
     emit_table(lines, config)
