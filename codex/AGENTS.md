@@ -9,6 +9,7 @@
 - ローカルパス、trusted projects、認証・セッション・キャッシュ・実行環境に依存する設定は `~/.codex/config.local.toml` に置く。
 - `~/.codex/config.toml` は `setup/codex.sh` で `codex/config.toml` と `~/.codex/config.local.toml` を merge して生成する。
 - 秘密情報を含む可能性がある設定は、実ファイルではなく local override か `*.example` のようなサンプルとして管理する。
+- `context-mode` は Codex profile ではなく plugin として扱う。共有側では必要な feature flag と setup 導線だけを管理し、marketplace 追加・plugin install・hook trust はローカルセットアップ時に行う。
 
 ## Git / SSH
 

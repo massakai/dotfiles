@@ -6,7 +6,14 @@ if [ -z "${REPOSITORY_ROOT_DIR:-}" ]; then
 fi
 
 OUTPUT_CONFIG="${HOME}/.codex/config.toml"
-TMP_CONFIG=$(mktemp "${TMPDIR:-/tmp}/codex-config.XXXXXX.toml")
+TMP_CONFIG=$(mktemp "${TMPDIR:-/tmp}/codex-config.XXXXXX")
+
+cleanup() {
+  if [ -n "${TMP_CONFIG:-}" ] && [ -f "${TMP_CONFIG}" ]; then
+    rm -f "${TMP_CONFIG}"
+  fi
+}
+trap cleanup EXIT
 
 mkdir -p ~/.codex
 mkdir -p ~/.agents
@@ -31,3 +38,23 @@ if [ -f "${OUTPUT_CONFIG}" ]; then
 fi
 
 mv "${TMP_CONFIG}" "${OUTPUT_CONFIG}"
+TMP_CONFIG=""
+
+if command -v codex >/dev/null 2>&1; then
+  if ! codex plugin marketplace list --json 2>/dev/null | grep -q '"name": "context-mode"'; then
+    if codex plugin marketplace add mksglu/context-mode; then
+      echo "Added Codex marketplace: mksglu/context-mode"
+    else
+      echo "Skipped adding Codex marketplace: mksglu/context-mode" >&2
+    fi
+  fi
+
+  if ! codex plugin list --json 2>/dev/null | grep -q '"pluginId": "context-mode@context-mode"'; then
+    if codex plugin add context-mode@context-mode; then
+      echo "Installed Codex plugin: context-mode@context-mode"
+      echo "Restart Codex and trust context-mode hooks when prompted."
+    else
+      echo "Skipped installing Codex plugin: context-mode@context-mode" >&2
+    fi
+  fi
+fi

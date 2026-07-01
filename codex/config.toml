@@ -36,3 +36,5 @@ global = "fileManager"
 
 [features]
 js_repl = false
+hooks = true
+plugin_hooks = true
