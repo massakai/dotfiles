@@ -30,11 +30,9 @@ export DROPBOX_HOME=~/Dropbox
 
 # Python
 export PIP_CONFIG_FILE=~/.config/pip/pip.conf
-export PYTHON310_HOME="/Library/Frameworks/Python.framework/Versions/3.10"
-export PYTHON311_HOME="/Library/Frameworks/Python.framework/Versions/3.11"
-export PYTHON312_HOME="/Library/Frameworks/Python.framework/Versions/3.12"
+export PYTHON314_HOME="/Library/Frameworks/Python.framework/Versions/3.14"
 path=(
-    ${PYTHON312_HOME}/bin
+    ${PYTHON314_HOME}/bin
     $path
 )
 
