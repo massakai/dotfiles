@@ -16,7 +16,7 @@ cleanup() {
 trap cleanup EXIT
 
 mkdir -p ~/.codex
-ln -sfn ${REPOSITORY_ROOT_DIR}/codex/AGENTS.md ~/.codex/AGENTS.md
+ln -sfn ${REPOSITORY_ROOT_DIR}/codex/global-AGENTS.md ~/.codex/AGENTS.md
 
 if [ -f "${OUTPUT_CONFIG}" ]; then
   cp "${OUTPUT_CONFIG}" "${TMP_CONFIG}"
