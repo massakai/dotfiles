@@ -67,6 +67,12 @@ darwin*) # for Mac OS X
   export JAVA_HOME_CMD=/usr/libexec/java_home
   # Java 17をデフォルトにする
   export JAVA_HOME=$(${JAVA_HOME_CMD} -v 17)
+
+  # SWI-Prolog
+  path=(
+    /Applications/SWI-Prolog.app/Contents/MacOS
+    $path
+  )
   ;;
 linux*)
   export XARGS_EMPTY_OPTION='--no-run-if-empty'
