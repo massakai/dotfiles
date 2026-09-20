@@ -23,3 +23,6 @@ zsh/.zsh_sessions/
 
 # Local-only Codex overrides
 codex/config.local.toml
+
+# IDE settings
+.idea/
